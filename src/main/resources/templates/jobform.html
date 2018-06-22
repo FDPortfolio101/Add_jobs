@@ -44,6 +44,7 @@
       th:action="@{/process}"
       th:object="${job}"
       method="post">
+    <input type="hidden" th:field="*{id}" />
     Position:<input type="text" th:field="*{position}" />
     <span th:if="${#fields.hasErrors('position')}"
           th:errors="*{position}"></span><br />
