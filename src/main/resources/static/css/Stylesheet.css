@@ -1,0 +1,7 @@
+.dropdown-menu a:hover{
+    background-color:cadetblue ;
+}
+body{
+    background:url("/img/job.jpg") ;
+    background-size:cover ;
+}

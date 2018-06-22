@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/">Show All Courses</a><br  />
+Title:<span th:text="${job.position}" ></span><br />
+Description :<p th:text="${job.company}" ></p>
+Credits :<span th:text="${job.requirements}" ></span><br />
+<a th:href="@{/delete/{id}(id=${job.id})}">Delete this course</a>
+
+</body>
+</html>
