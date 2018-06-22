@@ -42,7 +42,7 @@
 
 <form action="#"
       th:action="@{/process}"
-      th:object="${jobs}"
+      th:object="${job}"
       method="post">
     Position:<input type="text" th:field="*{position}" />
     <span th:if="${#fields.hasErrors('position')}"

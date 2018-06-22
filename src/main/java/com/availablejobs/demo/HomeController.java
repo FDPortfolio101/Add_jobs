@@ -15,34 +15,39 @@ public class HomeController {
     JobRepository jobRepository;
 
     @RequestMapping ("/job")
-    public String listJobs(Model model){
-        model.addAttribute("jobs", jobRepository.findAll());
+    public String Intro (Model model){
+        model.addAttribute("jobs", new Jobs());
         return "Intro";
     }
 
     @GetMapping("/add")
     public String jobForm (Model model){
-        model.addAttribute("jobs", new Jobs());
+        model.addAttribute("job", new Jobs());
         return "jobform";
+    }
+    @GetMapping("/list")
+    public String listJobs (Model model){
+        model.addAttribute("job", jobRepository.findAll());
+        return "listjob";
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid Jobs jobs, BindingResult result)
+    public String processForm(@Valid @ModelAttribute("job") Jobs jobs, BindingResult result)
     {
         if (result.hasErrors()) {
             return "jobform";
         }
         jobRepository.save(jobs);
-        return "listjob";
+        return "redirect:/list";
     }
     @RequestMapping("/detail/{id}")
     public String showJobs(@PathVariable("id") long id, Model model) {
-        model.addAttribute("jobs", jobRepository.findById(id).get());
+        model.addAttribute("job", jobRepository.findById(id).get());
         return "show";
     }
     @RequestMapping("/update/{id}")
     public String updateJobs(@PathVariable("id") long id, Model model) {
-        model.addAttribute("jobs", jobRepository.findById(id).get());
+        model.addAttribute("job", jobRepository.findById(id).get());
         return "jobform";
     }
 

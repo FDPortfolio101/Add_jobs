@@ -16,18 +16,21 @@
     <th>Requirements</th>
     <th>Desired Skills</th>
     </tr>
-    <tr th:each="eachjob:${jobs}">
-        <td th:text="${jobs.Position}"></td>
-        <td th:text="${jobs.Company}"></td>
-        <td th:text="${jobs.Requirements}"></td>
-        <td th:text="${jobs.skills}"></td>
+    <tbody>
+    <tr th:each="eachjob:${job}">
+        <td th:text="${eachjob.Position}"></td>
+        <td th:text="${eachjob.Company}"></td>
+        <td th:text="${eachjob.Requirements}"></td>
+        <td th:text="${eachjob.skills}"></td>
         <td>
-            <a th:href="@{/update/{id}(id=${jobs.id})}">Update</a> -
-            <a th:href="@{/detail/{id}(id=${jobs.id})}">Details</a> -
-            <a th:href="@{/update/{id}(id=${jobs.id})}">Delete</a>
+            <a th:href="@{/update/{id}(id=${eachjob.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${eachjob.id})}">Details</a> -
+            <a th:href="@{/update/{id}(id=${eachjob.id})}">Delete</a>
 
         </td>
     </tr>
+
+    </tbody>
 </table>
 </body>
 </html>
