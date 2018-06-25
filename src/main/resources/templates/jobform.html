@@ -13,7 +13,7 @@
 <body>
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="Intro.html">Home </a>
+        <a class="navbar-brand" href="/job">Home </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,15 +39,19 @@
         </div>
     </nav>
 </div>
-
+<div class="container">
 <form action="#"
       th:action="@{/process}"
       th:object="${job}"
       method="post">
-    <input type="hidden" th:field="*{id}" />
-    Position:<input type="text" th:field="*{position}" />
+       <div class="form-group">
+    <input type="hidden" th:field="*{id}" class="form-control">
+              </div>
+       <div class="form-group">
+    Position:<input type="text" th:field="*{position}" class="form-control">
     <span th:if="${#fields.hasErrors('position')}"
-          th:errors="*{position}"></span><br />
+          th:errors="*{position}"></span>
+              </div>    <br />
     Company:<input type="text" th:field="*{company}" />
     <span th:if="${#fields.hasErrors('company')}"
           th:errors="*{company}"></span><br />
@@ -59,5 +63,6 @@
     <button type= "submit" class="btn btn-outline-primary" align="center"> Create a Job Form!</button>
 
 </form>
+</div>
 </body>
 </html>

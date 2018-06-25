@@ -11,9 +11,11 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
+
+    //      Default route - this will be the first page a user visits
     @Autowired
     JobRepository jobRepository;
-
+//      add Jobs
     @RequestMapping ("/job")
     public String Intro (Model model){
         model.addAttribute("jobs", new Jobs());

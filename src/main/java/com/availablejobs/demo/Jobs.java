@@ -73,5 +73,14 @@ public class Jobs {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Jobs{" +
+                "id=" + id +
+                ", position='" + position + '\'' +
+                ", company='" + company + '\'' +
+                ", requirements='" + requirements + '\'' +
+                ", skills='" + skills + '\'' +
+                '}';
+    }
 }
